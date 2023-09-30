@@ -1,0 +1,24 @@
+	// ELEMENT TEST
+	printf("<<<  ELEMENT  >>>\n");
+	printf("NO: %s\n", info.no);
+	printf("SO: %s\n", info.so);
+	printf("WE: %s\n", info.we);
+	printf("EA: %s\n", info.ea);
+	printf("F: %d %d %d\n", info.f[0], info.f[1], info.f[2]);
+	printf("C: %d %d %d\n", info.c[0], info.c[1], info.c[2]);
+	printf("<<<  ELEMENT  >>>\n");
+	// ELEMENT TEST
+	
+	// MAP TEST
+	printf("<<<  MAP ARR  >>>\n");
+	int i = 0;
+	while (1)
+	{
+		if (info.map[i])
+			printf("%s\n", info.map[i]);
+		else
+			break ;
+		i++;
+	}
+	printf("<<<  MAP ARR  >>>\n");
+	// MAP TEST

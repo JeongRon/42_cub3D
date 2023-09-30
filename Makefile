@@ -6,7 +6,7 @@
 #    By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/25 18:16:30 by jeongrol          #+#    #+#              #
-#    Updated: 2023/09/25 18:33:33 by jeongrol         ###   ########.fr        #
+#    Updated: 2023/09/30 13:19:32 by jeongrol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,16 @@ RM = rm -f
 
 HEADER	=	cub3d.h
 
-MLX_LINK = -Lmlx -lmlx -framework OpenGL -framework Appkit
+# MLX_LINK = -Lmlx -lmlx -framework OpenGL -framework Appkit
 
 SRCS	=	cub3d.c \
-			
+			get_next_line/get_next_line_utils.c \
+			get_next_line/get_next_line.c \
+			parsing/parsing_cub3d.c \
+			parsing/parsing_input_info.c \
+			utils/utils_cub3d.c \
+			utils/utils_libft.c \
+			utils/utils_split.c \
 
 OBJS	=	$(SRCS:%.c=%.o)
 
@@ -30,7 +36,6 @@ all:	$(NAME)
 
 clean:
 	$(RM) $(OBJS)
-	make clean -C mlx
 	
 fclean:	clean
 	$(RM) $(NAME)
@@ -40,8 +45,7 @@ re:
 	make all
 
 $(NAME):	$(OBJS) $(HEADER)
-	@make -C mlx
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -I. $(MLX_LINK)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 %.o : %.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
