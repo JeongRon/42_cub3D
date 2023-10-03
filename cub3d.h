@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:22:19 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/09/30 18:19:04 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/10/03 18:45:26 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ typedef struct s_info
 	int		info_cnt;
 	int		pos_idx[2];
 	char	pos_dir;
+	int		row;
+	int		col;
+	int		dx[8];
+	int		dy[8];
 }	t_info;
 
 // utils
