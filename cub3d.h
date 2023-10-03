@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:22:19 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/03 18:45:26 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/10/03 19:47:09 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,10 @@ char	*get_next_line(int fd);
 void	parsing_cub3d(int ac, char **av, t_info *info);
 // parsing_set_info.c
 void	input_info(char **av, t_info *info);
+// parsing_validate_info_map.c
+void	validate_info_element(t_info *info);
+void	validate_info_map_char(t_info *info, int x, int y, char c);
+void	validate_info_map_wall(t_info *info, int x, int y);
+
 
 #endif

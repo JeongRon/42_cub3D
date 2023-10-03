@@ -6,7 +6,7 @@
 #    By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/25 18:16:30 by jeongrol          #+#    #+#              #
-#    Updated: 2023/09/30 13:19:32 by jeongrol         ###   ########.fr        #
+#    Updated: 2023/10/03 19:56:16 by jeongrol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRCS	=	cub3d.c \
 			get_next_line/get_next_line.c \
 			parsing/parsing_cub3d.c \
 			parsing/parsing_input_info.c \
+			parsing/parsing_validate_info.c \
 			utils/utils_cub3d.c \
 			utils/utils_libft.c \
 			utils/utils_split.c \
