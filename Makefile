@@ -6,7 +6,7 @@
 #    By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/25 18:16:30 by jeongrol          #+#    #+#              #
-#    Updated: 2023/10/03 19:56:16 by jeongrol         ###   ########.fr        #
+#    Updated: 2023/10/03 20:12:30 by jeongrol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ HEADER	=	cub3d.h
 SRCS	=	cub3d.c \
 			get_next_line/get_next_line_utils.c \
 			get_next_line/get_next_line.c \
+			get_next_line/get_next_line_cub3d.c \
 			parsing/parsing_cub3d.c \
 			parsing/parsing_input_info.c \
 			parsing/parsing_validate_info.c \

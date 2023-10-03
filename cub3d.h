@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:22:19 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/03 19:47:09 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/10/03 20:12:08 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,11 @@ int		check_empty_line(char *line);
 // utils_split.c
 char	**ft_split(char const *str, char c);
 // get_next_line
+char	*get_next_line(int fd);
 void	free_all(char *a, char *b);
 int		ft_linelen(const char *s);
 char	*delete_new_line(char *line);
 char	*replace_tab(char *line);
-char	*get_next_line(int fd);
 // parsing
 // parsing_cub3d.c
 void	parsing_cub3d(int ac, char **av, t_info *info);
