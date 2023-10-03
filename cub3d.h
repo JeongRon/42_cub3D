@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:22:19 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/09/30 18:19:04 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/10/03 20:12:08 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ typedef struct s_info
 	int		info_cnt;
 	int		pos_idx[2];
 	char	pos_dir;
+	int		row;
+	int		col;
+	int		dx[8];
+	int		dy[8];
 }	t_info;
 
 // utils
@@ -52,15 +56,20 @@ int		check_empty_line(char *line);
 // utils_split.c
 char	**ft_split(char const *str, char c);
 // get_next_line
+char	*get_next_line(int fd);
 void	free_all(char *a, char *b);
 int		ft_linelen(const char *s);
 char	*delete_new_line(char *line);
 char	*replace_tab(char *line);
-char	*get_next_line(int fd);
 // parsing
 // parsing_cub3d.c
 void	parsing_cub3d(int ac, char **av, t_info *info);
 // parsing_set_info.c
 void	input_info(char **av, t_info *info);
+// parsing_validate_info_map.c
+void	validate_info_element(t_info *info);
+void	validate_info_map_char(t_info *info, int x, int y, char c);
+void	validate_info_map_wall(t_info *info, int x, int y);
+
 
 #endif

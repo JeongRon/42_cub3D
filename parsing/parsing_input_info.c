@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 21:08:21 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/09/30 19:13:51 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/10/03 19:06:26 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,25 @@ static int	input_info_element_texture(char **tmp, t_info *info)
 	if (ft_strcmp(tmp[0], "NO") == 0)
 	{
 		if (info->no)
-			ft_error("file info-element error");
+			ft_error("file info-element-NO error");
 		info->no = ft_strdup(tmp[1]);
 	}
 	else if (ft_strcmp(tmp[0], "SO") == 0)
 	{
 		if (info->so)
-			ft_error("file info-element error");
+			ft_error("file info-element-SO error");
 		info->so = ft_strdup(tmp[1]);
 	}
 	else if (ft_strcmp(tmp[0], "WE") == 0)
 	{
 		if (info->we)
-			ft_error("file info-element error");
+			ft_error("file info-element-WE error");
 		info->we = ft_strdup(tmp[1]);
 	}
 	else if (ft_strcmp(tmp[0], "EA") == 0)
 	{
 		if (info->ea)
-			ft_error("file info-element error");
+			ft_error("file info-element-EA error");
 		info->ea = ft_strdup(tmp[1]);
 	}
 	return (SUCCESS);
@@ -94,7 +94,7 @@ static void	input_info_element(char *line, t_info *info, int flag)
 	ft_two_free(tmp);
 	info->info_cnt++;
 	if (flag == FAIL)
-		ft_error("file info-element error");
+		ft_error("file info-element-input error");
 }
 
 static void	input_info_map(char *line, t_info *info)
