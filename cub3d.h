@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:22:19 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/09 19:38:05 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/09 20:26:34 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <math.h>
 # include "./mlx/mlx.h"
 
 # define BUFFER_SIZE 42
@@ -76,7 +77,6 @@ typedef struct s_info
 	int			f[3];
 	int			c[3];
 	int			info_cnt;
-	int			pos_idx[2];
 	char		pos_dir;
 	int			dx[8];
 	int			dy[8];
@@ -89,7 +89,7 @@ typedef struct s_info
 	t_vec2		camera;
 	t_img		img;//mini_map no useable madatory
 	t_img		screen;
-	t_img		map_texture[4];
+	t_img		map_tex[4];
 	t_frame		frame;
 }	t_info;
 
@@ -146,6 +146,10 @@ int		draw_loop(t_info *game);
 void	where_tex_x(t_screen *s, t_info *game);
 void	where_hit_wall(t_screen *s, t_info *game);
 void	draw_screen(t_info *game);
+// excute_utils
+void	setting_mlx(t_info *game);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
+double	ft_abs(double num);
 
 
 #endif

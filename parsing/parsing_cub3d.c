@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_cub3d.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:29:43 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/03 19:53:01 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/10/09 20:03:14 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ static void	initialize_info(t_info *info)
 	info->ea = NULL;
 	info->map = NULL;
 	info->info_cnt = 0;
-	info->pos_idx[0] = -1;
-	info->pos_idx[1] = -1;
 	info->pos_dir = 'A';
 	info->row = 0;
 	info->col = 0;

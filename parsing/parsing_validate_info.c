@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_validate_info.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 19:44:35 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/03 19:56:28 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/10/09 20:05:16 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ void	validate_info_map_char(t_info *info, int x, int y, char c)
 				continue ;
 			else if (c == 'N' || c == 'S' || c == 'W' || c == 'E')
 			{
-				if (info->pos_idx[0] == -1)
+				if (info->pos_dir == 'A')
 				{
-					info->pos_idx[0] = x;
-					info->pos_idx[1] = y;
+					info->pos.x = x;
+					info->pos.y = y;
 					info->pos_dir = c;
 				}
 				else
@@ -59,7 +59,7 @@ void	validate_info_map_char(t_info *info, int x, int y, char c)
 				ft_error("file info-map error");
 		}
 	}
-	if (info->pos_idx[0] == -1)
+	if (info->pos_dir == 'A')
 		ft_error("file info-map position error");
 }
 

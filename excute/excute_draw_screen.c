@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 18:42:35 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/09 19:36:23 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/09 20:30:25 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,35 +19,35 @@ static void	line_texture(t_info *game, int x, t_screen *s)
 	double	step_y;
 	double	texture_y;
 
-	step_y = (double)game->map_texture[s->what_hit].height / \
+	step_y = (double)game->map_tex[s->what_hit].height / \
 	(double)(s->draw[1] - s->draw[0]);
 	texture_y = 0;
 	y = -1;
 	while (++y < s->draw[0])
-		game->screen.data[game->screen.width * y + x] = game->c;
+		game->screen.data[game->screen.width * y + x] = 0x00FF00;
 	y = s->draw[0];
 	while (y < s->draw[1])
 	{
 		tmp = (int)texture_y;
 		game->screen.data[game->screen.width * y + x] = \
-		game->map_texture[s->what_hit].data[game->\
-		map_texture[s->what_hit].width * tmp + s->tex];
+		game->map_tex[s->what_hit].data[game->\
+		map_tex[s->what_hit].width * tmp + s->tex];
 		y++;
 		texture_y += step_y;
-		if (texture_y > (double)(game->map_texture[s->what_hit].height - 1))
-			texture_y = (double)(game->map_texture[s->what_hit].height - 1);
+		if (texture_y > (double)(game->map_tex[s->what_hit].height - 1))
+			texture_y = (double)(game->map_tex[s->what_hit].height - 1);
 	}
 	while (++y < HEIGHT)
-		game->screen.data[game->screen.width * y + x] = game->f;
+		game->screen.data[game->screen.width * y + x] = 0x0000FF;
 }
 
-static void	calculation_draw_size(t_screen *s, t_info *game)
+static void	calculation_draw_size(t_screen *s)
 {
 	int		line_height;
 	int		draw_start;
 	int		draw_end;
 
-	line_height = (int)(HEIGHT / perpWallDist);
+	line_height = (int)(HEIGHT / s->ray_distance);
 	draw_start = (-line_height / 2) + (HEIGHT / 2);
 	if (draw_start < 0)
 		draw_start = 0;
@@ -86,7 +86,7 @@ static void	dda_and_vertical_distance(t_screen *s, t_info *game, int hit)
 		(1 - s->step[1]) / 2) / s->ray.y;
 }
 
-static void	screen_setting(t_screen *s, t_info *game)
+static void	screen_setting(t_screen *s, t_info *game, int x)
 {
 	double	screen_x;
 
@@ -102,32 +102,30 @@ static void	screen_setting(t_screen *s, t_info *game)
 	if (s->ray.x < 0)
 	{
 		s->step[0] = -1;
-		s->side_dis.x = (game->pos.x - s->map[0]) * delta_dis.x;
+		s->side_dis.x = (game->pos.x - s->map[0]) * s->delta_dis.x;
 	}
 	else
-		s->side_dis.x = (s->map[0] + 1.0 - game->pos.x) * delta_dis.x;
+		s->side_dis.x = (s->map[0] + 1.0 - game->pos.x) * s->delta_dis.x;
 	if (s->ray.y < 0)
 	{
 		s->step[1] = -1;
-		s->side_dis.y = (game->pos.y - s->map[1]) * delta_dis.y;
+		s->side_dis.y = (game->pos.y - s->map[1]) * s->delta_dis.y;
 	}
 	else
-		s->side_dis.y = (s->map[1] + 1.0 - game->pos.y) * delta_dis.y;
+		s->side_dis.y = (s->map[1] + 1.0 - game->pos.y) * s->delta_dis.y;
 }
 
 void	draw_screen(t_info *game)
 {
 	int			x;
-	int			tmp_hit;
-	int			tmp_tex;
 	t_screen	screen;
 
 	x = -1;
 	while (++x < WIDTH)
 	{
-		screen_setting(&screen, game);
+		screen_setting(&screen, game, x);
 		dda_and_vertical_distance(&screen, game, 0);
-		calculation_draw_size(&screen, game);
+		calculation_draw_size(&screen);
 		where_hit_wall(&screen, game);
 		where_tex_x(&screen, game);
 		line_texture(game, x, &screen);

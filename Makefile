@@ -6,14 +6,14 @@
 #    By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/25 18:16:30 by jeongrol          #+#    #+#              #
-#    Updated: 2023/10/09 19:38:50 by dongmiki         ###   ########.fr        #
+#    Updated: 2023/10/09 20:11:36 by dongmiki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3d
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 MLX = -L ./mlx -lmlx -framework OpenGL -framework AppKit
 
 RM = rm -f
@@ -36,6 +36,7 @@ SRCS	=	cub3d.c \
 			excute/excute_hook.c \
 			excute/excute_loop_hook.c \
 			excute/excute_setting.c \
+			excute/excute_utils.c \
 
 OBJS	=	$(SRCS:%.c=%.o)
 
