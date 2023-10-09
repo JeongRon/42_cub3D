@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:22:19 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/09 16:22:40 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/09 16:44:30 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,8 +117,11 @@ void	input_info(char **av, t_info *info);
 void	validate_info_element(t_info *info);
 void	validate_info_map_char(t_info *info, int x, int y, char c);
 void	validate_info_map_wall(t_info *info, int x, int y);
-
-// excute
+// excute_hook
+int		key_press(int keycode, t_info *g);
+int		exit_button(void);
+// excute_loop_hook
+int		draw_loop(t_game *game);
 
 
 #endif
