@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 19:44:35 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/09 20:05:16 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/09 21:04:36 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,14 @@ void	validate_info_element(t_info *info)
 		ft_error("file info-element-texture error"); // 동서남북 중복된 텍스처 있으면 에러
 }
 
+static void	input_pos_dir(t_info *info, int x, int y, char c)
+{
+	info->pos.x = x + 0.5;
+	info->pos.y = y + 0.5;
+	info->pos_dir = c;
+	info->map[x][y] = '0';
+}
+
 // info-map 허용한 문자들 확인하는 함수
 void	validate_info_map_char(t_info *info, int x, int y, char c)
 {
@@ -47,11 +55,7 @@ void	validate_info_map_char(t_info *info, int x, int y, char c)
 			else if (c == 'N' || c == 'S' || c == 'W' || c == 'E')
 			{
 				if (info->pos_dir == 'A')
-				{
-					info->pos.x = x;
-					info->pos.y = y;
-					info->pos_dir = c;
-				}
+					input_pos_dir(info, x, y, c);
 				else
 					ft_error("file info-map error");
 			}

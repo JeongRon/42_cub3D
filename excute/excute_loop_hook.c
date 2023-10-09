@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:09:30 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/09 20:19:13 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/09 20:34:31 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,12 @@ void	where_hit_wall(t_screen *s, t_info *game)
 
 int	draw_loop(t_info *game)
 {
-		printf("3\n");
 	mlx_clear_window(game->mlx, game->win);
 	game->screen.img = mlx_new_image(game->mlx, WIDTH, HEIGHT);
 	game->screen.width = WIDTH;
 	game->screen.height = HEIGHT;
 	game->screen.data = (int *)mlx_get_data_addr(game->screen.img, \
 	&game->screen.bpp, &game->screen.line_size, &game->screen.endian);
-			printf("4\n");
 	draw_screen(game);
 	mlx_destroy_image(game->mlx, game->screen.img);
 	return (0);

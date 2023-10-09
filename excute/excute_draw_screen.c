@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 18:42:35 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/09 20:30:25 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/09 20:45:25 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static void	dda_and_vertical_distance(t_screen *s, t_info *game, int hit)
 			s->map[1] += s->step[1];
 			s->side = 1;
 		}
-		if (game->map[s->map[0]][s->map[1]] > 0)
+		if (game->map[s->map[0]][s->map[1]] > '0')
 			hit = 1;
 	}
 	if (s->side == 0)
