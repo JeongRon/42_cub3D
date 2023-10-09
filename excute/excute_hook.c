@@ -6,11 +6,11 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:09:03 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/09 16:43:57 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/09 19:35:17 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 //r_s is temp value | maybe change info->frame rotate_speed
 static void	rotate(int keycode, t_info g)

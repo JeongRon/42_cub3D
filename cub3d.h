@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:22:19 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/09 16:44:30 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/09 19:38:05 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,16 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include "./mlx/mlx.h"
 
 # define BUFFER_SIZE 42
 # define FAIL 0
 # define SUCCESS 1
+
+//window(20 * TILE_SIZE, 15 * TILE_SIZE)
+# define TILE_SIZE 64
+# define WIDTH 1280
+# define HEIGHT 960
 
 //Key fuction
 # define KEY_ESC 53
@@ -87,6 +93,21 @@ typedef struct s_info
 	t_frame		frame;
 }	t_info;
 
+typedef struct t_screen
+{
+	int		map[2];
+	int		step[2];
+	int		draw[2];
+	int		side;
+	int		what_hit;
+	int		tex;
+	t_vec2	ray;
+	t_vec2	side_dis;
+	t_vec2	delta_dis;
+	double	ray_distance;
+}	t_screen;
+
+
 // utils
 // utils_libft.c
 int		ft_strlen(const char *str);
@@ -121,7 +142,10 @@ void	validate_info_map_wall(t_info *info, int x, int y);
 int		key_press(int keycode, t_info *g);
 int		exit_button(void);
 // excute_loop_hook
-int		draw_loop(t_game *game);
+int		draw_loop(t_info *game);
+void	where_tex_x(t_screen *s, t_info *game);
+void	where_hit_wall(t_screen *s, t_info *game);
+void	draw_screen(t_info *game);
 
 
 #endif

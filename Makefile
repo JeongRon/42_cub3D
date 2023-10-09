@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+         #
+#    By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/25 18:16:30 by jeongrol          #+#    #+#              #
-#    Updated: 2023/10/03 20:12:30 by jeongrol         ###   ########.fr        #
+#    Updated: 2023/10/09 19:38:50 by dongmiki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME = cub3d
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
+MLX = -L ./mlx -lmlx -framework OpenGL -framework AppKit
 
 RM = rm -f
 
@@ -31,12 +32,17 @@ SRCS	=	cub3d.c \
 			utils/utils_cub3d.c \
 			utils/utils_libft.c \
 			utils/utils_split.c \
+			excute/excute_draw_screen.c \
+			excute/excute_hook.c \
+			excute/excute_loop_hook.c \
+			excute/excute_setting.c \
 
 OBJS	=	$(SRCS:%.c=%.o)
 
 all:	$(NAME)
 
 clean:
+	make clean -C mlx
 	$(RM) $(OBJS)
 	
 fclean:	clean
@@ -47,7 +53,8 @@ re:
 	make all
 
 $(NAME):	$(OBJS) $(HEADER)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+	make -C mlx/
+	$(CC) $(CFLAGS) $(MLX) -o $(NAME) $(OBJS)
 
 %.o : %.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@

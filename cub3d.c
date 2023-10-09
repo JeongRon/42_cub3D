@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:22:14 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/09 15:05:56 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/09 19:28:39 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ int	main(int ac, char **av)
 	free_info(&info);
 
 	//excution
-	mlx_hook(game.win, KEY_EVENT_PRESS, 0, key_press, &game);
-	mlx_hook(game.win, KEY_EVENT_EXIT, 0, exit_button, &game);
-	mlx_loop_hook(game.mlx, draw_loop, &game);
+	mlx_hook(info.win, KEY_EVENT_PRESS, 0, key_press, &info);
+	mlx_hook(info.win, KEY_EVENT_EXIT, 0, exit_button, &info);
+	mlx_loop_hook(info.mlx, draw_loop, &info);
 
-	mlx_loop(game.mlx);
+	mlx_loop(info.mlx);
 	return (0);
 }

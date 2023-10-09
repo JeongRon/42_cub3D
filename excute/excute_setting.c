@@ -6,11 +6,11 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:58:44 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/09 16:23:58 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/09 19:35:23 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	setting_mlx(t_info *game)
 {
