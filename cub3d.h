@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:22:19 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/03 20:12:08 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/10/09 16:22:40 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,69 @@
 # define FAIL 0
 # define SUCCESS 1
 
+//Key fuction
+# define KEY_ESC 53
+# define KEY_EVENT_PRESS 2
+# define KEY_EVENT_EXIT 17
+# define A			0
+# define S			1
+# define D			2
+# define W			13
+
+//Math
+# define PI 3.14159265359
+
+typedef struct s_img
+{
+	void	*img;
+	int		*data;
+	int		bpp;
+	int		line_size;
+	int		width;
+	int		height;
+	int		endian;
+}	t_img;
+
+typedef struct s_vec2
+{
+	double	x;
+	double	y;
+}	t_vec2;
+
+typedef struct s_frame
+{
+	double	time;
+	double	old_time;
+}	t_frame;
+
 typedef struct s_info
 {
-	char	*no;
-	char	*so;
-	char	*we;
-	char	*ea;
-	int		f[3];
-	int		c[3];
-	char	**map;
-	int		info_cnt;
-	int		pos_idx[2];
-	char	pos_dir;
-	int		row;
-	int		col;
-	int		dx[8];
-	int		dy[8];
+	void		*mlx;
+	void		*win;
+	// delete
+	char		*no;
+	char		*so;
+	char		*we;
+	char		*ea;
+	//	-->	t_img		map_texture[4];
+	int			f[3];
+	int			c[3];
+	int			info_cnt;
+	int			pos_idx[2];
+	char		pos_dir;
+	int			dx[8];
+	int			dy[8];
+	//excute
+	int			row;
+	int			col;
+	char		**map;
+	t_vec2		dir_vec;
+	t_vec2		pos;
+	t_vec2		camera;
+	t_img		img;//mini_map no useable madatory
+	t_img		screen;
+	t_img		map_texture[4];
+	t_frame		frame;
 }	t_info;
 
 // utils
@@ -70,6 +117,8 @@ void	input_info(char **av, t_info *info);
 void	validate_info_element(t_info *info);
 void	validate_info_map_char(t_info *info, int x, int y, char c);
 void	validate_info_map_wall(t_info *info, int x, int y);
+
+// excute
 
 
 #endif
