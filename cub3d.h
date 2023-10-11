@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:22:19 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/11 20:13:13 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/11 22:14:15 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,11 @@
 # define FAIL 0
 # define SUCCESS 1
 
-//window(20 * TILE_SIZE, 15 * TILE_SIZE)
-# define TILE_SIZE 64
 # define WIDTH 1280
 # define HEIGHT 960
+# define MINWIDTH 300
+# define MINHEIGHT 180
+# define MINTILE 30
 
 //Key fuction
 # define KEY_ESC 53
@@ -87,7 +88,7 @@ typedef struct s_info
 	t_vec2		dir_vec;
 	t_vec2		pos;
 	t_vec2		camera;
-	t_img		img;//mini_map no useable madatory
+	t_img		mini;//mini_map no useable madatory
 	t_img		screen;
 	t_img		map_tex[4];
 	t_frame		frame;
@@ -149,6 +150,8 @@ int		draw_loop(t_info *game);
 void	where_tex_x(t_screen *s, t_info *game);
 void	where_hit_wall(t_screen *s, t_info *game);
 void	draw_screen(t_info *game, int time);
+//excute_minimap
+void	draw_minimap(t_info *game);
 // excute_utils
 void	setting_mlx(t_info *game);
 void	*ft_memcpy(void *dst, const void *src, size_t n);

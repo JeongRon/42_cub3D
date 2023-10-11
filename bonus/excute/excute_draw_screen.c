@@ -6,11 +6,11 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 18:42:35 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/11 21:11:40 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/11 21:11:32 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../../cub3d.h"
 
 static void	line_texture2(t_info *game, int x, t_screen *s, int time)
 {

@@ -6,11 +6,11 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:09:30 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/11 20:58:50 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/11 21:00:43 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../../cub3d.h"
 
 void	where_tex_x(t_screen *s, t_info *game)
 {
@@ -58,5 +58,13 @@ int	draw_loop(t_info *game)
 	&game->screen.bpp, &game->screen.line_size, &game->screen.endian);
 	draw_screen(game, game->ani);
 	mlx_destroy_image(game->mlx, game->screen.img);
+	game->mini.img = mlx_new_image(game->mlx, MINWIDTH, MINHEIGHT);
+	game->mini.img = mlx_new_image(game->mlx, MINWIDTH, MINHEIGHT);
+	game->mini.width = MINWIDTH;
+	game->mini.height = MINHEIGHT;
+	game->mini.data = (int *)mlx_get_data_addr(game->mini.img, \
+	&game->mini.bpp, &game->mini.line_size, &game->mini.endian);
+	draw_minimap(game);
+	mlx_destroy_image(game->mlx, game->mini.img);
 	return (0);
 }
