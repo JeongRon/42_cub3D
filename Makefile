@@ -6,21 +6,19 @@
 #    By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/25 18:16:30 by jeongrol          #+#    #+#              #
-#    Updated: 2023/10/09 20:11:36 by dongmiki         ###   ########.fr        #
+#    Updated: 2023/10/11 20:16:12 by dongmiki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3d
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror
 MLX = -L ./mlx -lmlx -framework OpenGL -framework AppKit
 
 RM = rm -f
 
 HEADER	=	cub3d.h
-
-# MLX_LINK = -Lmlx -lmlx -framework OpenGL -framework Appkit
 
 SRCS	=	cub3d.c \
 			get_next_line/get_next_line_utils.c \

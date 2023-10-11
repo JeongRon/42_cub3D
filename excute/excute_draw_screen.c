@@ -6,36 +6,32 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 18:42:35 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/09 20:45:25 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/11 20:13:40 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-static void	line_texture(t_info *game, int x, t_screen *s)
+static void	line_texture2(t_info *game, int x, t_screen *s, int time)
 {
 	int		y;
-	int		tmp;
+	int		tex_y;
 	double	step_y;
-	double	texture_y;
+	double	tex_pos;
 
-	step_y = (double)game->map_tex[s->what_hit].height / \
-	(double)(s->draw[1] - s->draw[0]);
-	texture_y = 0;
+	(void)time;
 	y = -1;
 	while (++y < s->draw[0])
 		game->screen.data[game->screen.width * y + x] = 0x00FF00;
-	y = s->draw[0];
-	while (y < s->draw[1])
+	step_y = 1.0 * game->map_tex[s->what_hit].height / s->line_height;
+	tex_pos = (s->draw[0] - HEIGHT / 2 + s->line_height / 2) * step_y;
+	while (++y < s->draw[1])
 	{
-		tmp = (int)texture_y;
+		tex_y = (int)tex_pos & (game->map_tex[s->what_hit].height - 1);
+		tex_pos += step_y;
 		game->screen.data[game->screen.width * y + x] = \
-		game->map_tex[s->what_hit].data[game->\
-		map_tex[s->what_hit].width * tmp + s->tex];
-		y++;
-		texture_y += step_y;
-		if (texture_y > (double)(game->map_tex[s->what_hit].height - 1))
-			texture_y = (double)(game->map_tex[s->what_hit].height - 1);
+			game->map_tex[s->what_hit].data[game->map_tex[s->what_hit].height \
+			* tex_y + s->tex_x];
 	}
 	while (++y < HEIGHT)
 		game->screen.data[game->screen.width * y + x] = 0x0000FF;
@@ -56,6 +52,7 @@ static void	calculation_draw_size(t_screen *s)
 		draw_end = HEIGHT - 1;
 	s->draw[0] = draw_start;
 	s->draw[1] = draw_end;
+	s->line_height = line_height;
 }
 
 //Digital Differential Analyzer
@@ -115,7 +112,7 @@ static void	screen_setting(t_screen *s, t_info *game, int x)
 		s->side_dis.y = (s->map[1] + 1.0 - game->pos.y) * s->delta_dis.y;
 }
 
-void	draw_screen(t_info *game)
+void	draw_screen(t_info *game, int time)
 {
 	int			x;
 	t_screen	screen;
@@ -128,7 +125,7 @@ void	draw_screen(t_info *game)
 		calculation_draw_size(&screen);
 		where_hit_wall(&screen, game);
 		where_tex_x(&screen, game);
-		line_texture(game, x, &screen);
+		line_texture2(game, x, &screen, time);
 	}
 	mlx_put_image_to_window(game->mlx, game->win, game->screen.img, 0, 0);
 }

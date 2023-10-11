@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:09:30 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/09 20:34:31 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/11 20:13:31 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	where_tex_x(t_screen *s, t_info *game)
 	hit_wall_x -= floor((hit_wall_x));
 
 	tex_x = (int)(hit_wall_x * (double)TILE_SIZE);
-	s->tex = tex_x;
+	s->tex_x = tex_x;
 }
 
 void	where_hit_wall(t_screen *s, t_info *game)
@@ -47,13 +47,16 @@ void	where_hit_wall(t_screen *s, t_info *game)
 
 int	draw_loop(t_info *game)
 {
+	// game->ani_time = (game->ani_time + 1) % 100;
+	// if (game->ani_time == 0)
+	// 	game->ani = (game->ani + 1) % 64;
 	mlx_clear_window(game->mlx, game->win);
 	game->screen.img = mlx_new_image(game->mlx, WIDTH, HEIGHT);
 	game->screen.width = WIDTH;
 	game->screen.height = HEIGHT;
 	game->screen.data = (int *)mlx_get_data_addr(game->screen.img, \
 	&game->screen.bpp, &game->screen.line_size, &game->screen.endian);
-	draw_screen(game);
+	draw_screen(game, game->ani);
 	mlx_destroy_image(game->mlx, game->screen.img);
 	return (0);
 }

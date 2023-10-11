@@ -6,14 +6,14 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:09:03 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/09 20:07:23 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/11 20:07:56 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
 //r_s is temp value | maybe change info->frame rotate_speed
-static void	rotate(int keycode, t_info *g)
+void	rotate(int keycode, t_info *g)
 {
 	double	r_s;
 	double	temp;
@@ -44,20 +44,20 @@ static void	move(int keycode, t_info *g)
 {
 	double	m_s;
 
-	m_s = 0.5;
+	m_s = 1;
 	if (keycode == W)
 	{
 		if (g->map[(int)(g->pos.x + g->dir_vec.x * m_s)][(int)(g->pos.y)] == '0')
-			g->pos.x += g->dir_vec.x * m_s;
+			g->pos.x += g->dir_vec.x * (m_s / 2);
 		if (g->map[(int)(g->pos.x)][(int)(g->pos.y + g->dir_vec.y * m_s)] == '0')
-			g->pos.y += g->dir_vec.y * m_s;
+			g->pos.y += g->dir_vec.y * (m_s / 2);
 	}
 	if (keycode == S)
 	{
 		if (g->map[(int)(g->pos.x - g->dir_vec.x * m_s)][(int)(g->pos.y)] == '0')
-			g->pos.x -= g->dir_vec.x * m_s;
+			g->pos.x -= g->dir_vec.x * (m_s / 2);
 		if (g->map[(int)(g->pos.x)][(int)(g->pos.y - g->dir_vec.y * m_s)] == '0')
-			g->pos.y -= g->dir_vec.y * m_s;
+			g->pos.y -= g->dir_vec.y * (m_s / 2);
 	}
 }
 
@@ -84,6 +84,5 @@ int	key_press(int keycode, t_info *g)
 
 int	exit_button(void)
 {
-	//malloc
 	exit(0);
 }

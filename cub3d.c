@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:22:14 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/09 20:30:45 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/11 20:16:04 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int	main(int ac, char **av)
 	// TEST_CODE 넣는 자리
 	setting_mlx(&info);
 
-
+	info.ani = 0;
+	info.ani_time = 0;
 	//excution
 	mlx_hook(info.win, KEY_EVENT_PRESS, 0, &key_press, &info);
 	mlx_hook(info.win, KEY_EVENT_EXIT, 0, &exit_button, &info);

@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:58:44 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/09 20:41:39 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/11 19:43:11 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,26 +42,22 @@ static void	setting_mlx_map_tex(t_info *game, t_img *map_tex, int dir)
 // dir_vec -> 북: 0,1/남 0,-1/ 동1,0/서-1,0
 static void	setting_mlx_dir_vec(t_info *game)
 {
+	int	temp;
+
+	temp = -1;
+	game->dir_vec.x = -1;
+	game->dir_vec.y = 0;
 	if (game->pos_dir == 'N')
-	{
-		game->dir_vec.x = 0;
-		game->dir_vec.y = 1;
-	}
+		return ;
 	else if (game->pos_dir == 'S')
-	{
-		game->dir_vec.x = 0;
-		game->dir_vec.y = -1;
-	}
+		while (++temp < 36)
+			rotate(D, game);
 	else if (game->pos_dir == 'E')
-	{
-		game->dir_vec.x = 1;
-		game->dir_vec.y = 0;
-	}
+		while (++temp < 18)
+			rotate(D, game);
 	else if (game->pos_dir == 'W')
-	{
-		game->dir_vec.x = -1;
-		game->dir_vec.y = 0;
-	}
+		while (++temp < 18)
+			rotate(A, game);
 }
 
 void	setting_mlx(t_info *game)
@@ -73,10 +69,11 @@ void	setting_mlx(t_info *game)
 	i = -1;
 	while (++i < 4)
 		setting_mlx_map_tex(game, &(game->map_tex[i]), i);
-	setting_mlx_dir_vec(game);
 	//camera 시점인데 y=0.66이 fps게임해서 최적의 시점
 	game->camera.x = 0;
 	game->camera.y = 0.66;
+	setting_mlx_dir_vec(game);
+
 	//frame  -> 아직 안함 고민중인 부분
 	game->frame.time = 0;
 	game->frame.old_time = 0;

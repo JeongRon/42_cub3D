@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:22:19 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/09 20:26:34 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/11 20:13:13 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ typedef struct s_info
 	t_img		screen;
 	t_img		map_tex[4];
 	t_frame		frame;
+	int			ani;
+	int			ani_time;
 }	t_info;
 
 typedef struct t_screen
@@ -98,9 +100,10 @@ typedef struct t_screen
 	int		map[2];
 	int		step[2];
 	int		draw[2];
+	int		line_height;
 	int		side;
 	int		what_hit;
-	int		tex;
+	int		tex_x;
 	t_vec2	ray;
 	t_vec2	side_dis;
 	t_vec2	delta_dis;
@@ -145,10 +148,11 @@ int		exit_button(void);
 int		draw_loop(t_info *game);
 void	where_tex_x(t_screen *s, t_info *game);
 void	where_hit_wall(t_screen *s, t_info *game);
-void	draw_screen(t_info *game);
+void	draw_screen(t_info *game, int time);
 // excute_utils
 void	setting_mlx(t_info *game);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
+void	rotate(int keycode, t_info *g);
 double	ft_abs(double num);
 
 
