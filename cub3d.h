@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:22:19 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/11 22:14:15 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/12 18:15:08 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,27 +20,31 @@
 # include <math.h>
 # include "./mlx/mlx.h"
 
-# define BUFFER_SIZE 42
-# define FAIL 0
-# define SUCCESS 1
+# define BUFFER_SIZE	42
+# define FAIL 			0
+# define SUCCESS		1
 
-# define WIDTH 1280
-# define HEIGHT 960
-# define MINWIDTH 300
-# define MINHEIGHT 180
-# define MINTILE 30
+# define WIDTH		1280
+# define HEIGHT		960
+# define MINWIDTH	330
+# define MINHEIGHT	210
+# define MINTILE	30
 
 //Key fuction
-# define KEY_ESC 53
-# define KEY_EVENT_PRESS 2
-# define KEY_EVENT_EXIT 17
-# define A			0
-# define S			1
-# define D			2
-# define W			13
+# define KEY_ESC			53
+# define KEY_EVENT_PRESS	2
+# define KEY_EVENT_EXIT		17
+# define A	0
+# define S	1
+# define D	2
+# define W	13
+
+//MOUSE
+# define LEFT_CLICK		1
+# define RIGHT_CLICK	2
 
 //Math
-# define PI 3.14159265359
+# define PI	3.14159265359
 
 typedef struct s_img
 {
@@ -90,7 +94,10 @@ typedef struct s_info
 	t_vec2		camera;
 	t_img		mini;//mini_map no useable madatory
 	t_img		screen;
-	t_img		map_tex[4];
+	t_img		map_tex[5];
+	t_img		sprite;
+	t_img		rider;
+	t_img		boom;
 	t_frame		frame;
 	int			ani;
 	int			ani_time;
@@ -150,13 +157,15 @@ int		draw_loop(t_info *game);
 void	where_tex_x(t_screen *s, t_info *game);
 void	where_hit_wall(t_screen *s, t_info *game);
 void	draw_screen(t_info *game, int time);
-//excute_minimap
+// excute_minimap
 void	draw_minimap(t_info *game);
 // excute_utils
 void	setting_mlx(t_info *game);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	rotate(int keycode, t_info *g);
 double	ft_abs(double num);
-
+// excute mouse event
+void	mouse_event(t_info *game);
+int		mouse_event2(int keycode, int x, int y, t_info *game);
 
 #endif

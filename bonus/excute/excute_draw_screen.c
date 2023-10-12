@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 18:42:35 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/11 21:11:32 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/12 17:14:12 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ static void	line_texture2(t_info *game, int x, t_screen *s, int time)
 	double	step_y;
 	double	tex_pos;
 
-	(void)time;
 	y = -1;
 	while (++y < s->draw[0])
 		game->screen.data[game->screen.width * y + x] = 0x00FF00;
 	step_y = 1.0 * game->map_tex[s->what_hit].height / s->line_height;
 	tex_pos = (s->draw[0] - HEIGHT / 2 + s->line_height / 2) * step_y;
 	y--;
+	s->tex_x = (s->tex_x + time) % game->map_tex[s->what_hit].width;
 	while (++y < s->draw[1])
 	{
 		tex_y = (int)tex_pos & (game->map_tex[s->what_hit].height - 1);

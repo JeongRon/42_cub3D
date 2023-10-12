@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 19:57:22 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/11 20:31:45 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/12 17:55:49 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,38 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 		i++;
 	}
 	return (ndst);
+}
+
+void	mouse_event(t_info *game)
+{
+	int	x;
+	int	y;
+
+	mlx_mouse_get_pos(game->win, &x, &y);
+	if (x > 740)
+		rotate(D, game);
+	else if (x < 540)
+		rotate(A, game);
+	mlx_mouse_move(game->win, 640, 480);
+}
+
+int	mouse_event2(int keycode, int x, int y, t_info *game)
+{
+	double	temp;
+
+	(void)x;
+	(void)y;
+	if (keycode == LEFT_CLICK)
+		game->ani_time++;
+	if (keycode == RIGHT_CLICK)
+	{
+		temp = game->dir_vec.x;
+		game->dir_vec.x = game->dir_vec.x * \
+		cos(-PI) - game->dir_vec.y * sin(-PI);
+		game->dir_vec.y = temp * sin(-PI) + game->dir_vec.y * cos(-PI);
+		temp = game->camera.x;
+		game->camera.x = game->camera.x * cos(-PI) - game->camera.y * sin(-PI);
+		game->camera.y = temp * sin(-PI) + game->camera.y * cos(-PI);
+	}
+	return (0);
 }

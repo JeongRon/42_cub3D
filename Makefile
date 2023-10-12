@@ -6,7 +6,7 @@
 #    By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/25 18:16:30 by jeongrol          #+#    #+#              #
-#    Updated: 2023/10/11 21:15:06 by dongmiki         ###   ########.fr        #
+#    Updated: 2023/10/12 14:52:01 by dongmiki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = cub3d
 B_NAME = cub3d
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 MLX = -L ./mlx -lmlx -framework OpenGL -framework AppKit
 
 RM = rm -f
@@ -37,7 +37,7 @@ SRCS	=	cub3d.c \
 			excute/excute_setting.c \
 			excute/excute_utils.c
 			
-B_SRCS	=	cub3d.c \
+B_SRCS	=	bonus/cub3d.c \
 			get_next_line/get_next_line_utils.c \
 			get_next_line/get_next_line.c \
 			get_next_line/get_next_line_cub3d.c \

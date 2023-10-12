@@ -6,13 +6,13 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:48:18 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/11 22:14:05 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/12 14:11:36 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
-//300 * 180 -> 60 * 60
-//5*3
+//330 * 210 -> 30 * 30
+//11*7
 // me: red/ wall:brwoun /back:whilte
 
 static int	color_map(t_info *game, int x, int y, int px, int py)
@@ -48,13 +48,13 @@ void	draw_minimap(t_info *game)
 	int	tmp_y;
 
 	y = -1;
-	while (++y < 6)
+	while (++y < 7)
 	{
 		x = -1;
-		tmp_y = (int)(game->pos.x - 1 + y);
-		while (++x < 10)
+		tmp_y = (int)(game->pos.x - 3 + y);
+		while (++x < 11)
 		{
-			tmp_x = (int)(game->pos.y - 2 + x);
+			tmp_x = (int)(game->pos.y - 5 + x);
 			if (tmp_x >= 0 && tmp_y >= 0 \
 			&& tmp_x < game->col && tmp_y < game->row)
 				color_map(game, tmp_x, tmp_y, x, y);

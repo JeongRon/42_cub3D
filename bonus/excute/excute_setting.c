@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:58:44 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/11 20:31:43 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/12 18:15:34 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ static void	setting_mlx_map_tex(t_info *game, t_img *map_tex, int dir)
 	}
 	map_tex->data = (int *)mlx_get_data_addr(map_tex->img, &(map_tex->bpp), \
 	&(map_tex->line_size), &(map_tex->endian));
+	game->sprite.img = mlx_xpm_file_to_image(game->mlx, "./img/crosshair.xpm", \
+		&(game->sprite.width), &(game->sprite.height));
 }
 
 // dir_vec -> 북: 0,1/남 0,-1/ 동1,0/서-1,0
@@ -69,10 +71,15 @@ void	setting_mlx(t_info *game)
 	i = -1;
 	while (++i < 4)
 		setting_mlx_map_tex(game, &(game->map_tex[i]), i);
+	game->rider.img = mlx_xpm_file_to_image(game->mlx, "./img/rider.xpm", \
+		&(game->rider.width), &(game->rider.height));
+	game->boom.img = mlx_xpm_file_to_image(game->mlx, "./img/boom.xpm", \
+		&(game->boom.width), &(game->boom.height));
 	//camera 시점인데 y=0.66이 fps게임해서 최적의 시점
 	game->camera.x = 0;
 	game->camera.y = 0.66;
 	setting_mlx_dir_vec(game);
+	mlx_mouse_hide();
 
 	//frame  -> 아직 안함 고민중인 부분
 	game->frame.time = 0;

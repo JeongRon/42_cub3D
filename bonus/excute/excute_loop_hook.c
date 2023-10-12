@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:09:30 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/11 21:00:43 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/12 18:19:45 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,35 @@ void	where_hit_wall(t_screen *s, t_info *game)
 	}
 }
 
+static void	draw_sprite(t_info *game)
+{
+	int	x;
+	int	y;
+
+	x = WIDTH - (game->ani_time);
+	y = (game->ani_time / 2);
+	mlx_put_image_to_window(game->mlx, game->win, game->sprite.img, \
+	WIDTH / 2 - 112, HEIGHT / 2 - 113);
+	if (game->ani_time > 0 && game->ani_time < HEIGHT - 192)
+	{
+		game->ani_time += 10;
+		mlx_put_image_to_window(game->mlx, game->win, game->rider.img, x, y);
+	}
+	if (game->ani_time > HEIGHT - 192)
+	{
+		game->ani_time += 10;
+		mlx_put_image_to_window(game->mlx, game->win, game->boom.img, \
+		(WIDTH / 2) - (game->boom.width / 2), \
+		(HEIGHT / 2) - (game->boom.height / 2));
+	}
+	if (game->ani_time > HEIGHT + 100)
+		game->ani_time = 0;
+}
+
 int	draw_loop(t_info *game)
 {
-	// game->ani_time = (game->ani_time + 1) % 100;
-	// if (game->ani_time == 0)
-	// 	game->ani = (game->ani + 1) % 64;
+	game->ani = (game->ani + 1) % 300;
+	mouse_event(game);
 	mlx_clear_window(game->mlx, game->win);
 	game->screen.img = mlx_new_image(game->mlx, WIDTH, HEIGHT);
 	game->screen.width = WIDTH;
@@ -66,5 +90,6 @@ int	draw_loop(t_info *game)
 	&game->mini.bpp, &game->mini.line_size, &game->mini.endian);
 	draw_minimap(game);
 	mlx_destroy_image(game->mlx, game->mini.img);
+	draw_sprite(game);
 	return (0);
 }

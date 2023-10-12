@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:09:03 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/11 20:31:39 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/12 17:50:52 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,20 @@ static void	move(int keycode, t_info *g)
 	m_s = 1;
 	if (keycode == W)
 	{
-		if (g->map[(int)(g->pos.x + g->dir_vec.x * m_s)][(int)(g->pos.y)] == '0')
+		if (g->map[(int)(g->pos.x + g->dir_vec.x * m_s)][(int)(g->pos.y)] \
+		== '0')
 			g->pos.x += g->dir_vec.x * (m_s / 2);
-		if (g->map[(int)(g->pos.x)][(int)(g->pos.y + g->dir_vec.y * m_s)] == '0')
+		if (g->map[(int)(g->pos.x)][(int)(g->pos.y + g->dir_vec.y * m_s)] \
+		== '0')
 			g->pos.y += g->dir_vec.y * (m_s / 2);
 	}
 	if (keycode == S)
 	{
-		if (g->map[(int)(g->pos.x - g->dir_vec.x * m_s)][(int)(g->pos.y)] == '0')
+		if (g->map[(int)(g->pos.x - g->dir_vec.x * m_s)][(int)(g->pos.y)] \
+		== '0')
 			g->pos.x -= g->dir_vec.x * (m_s / 2);
-		if (g->map[(int)(g->pos.x)][(int)(g->pos.y - g->dir_vec.y * m_s)] == '0')
+		if (g->map[(int)(g->pos.x)][(int)(g->pos.y - g->dir_vec.y * m_s)]\
+		== '0')
 			g->pos.y -= g->dir_vec.y * (m_s / 2);
 	}
 }
