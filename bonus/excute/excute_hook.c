@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:09:03 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/13 14:40:44 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:46:26 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,19 +48,19 @@ static void	move(int keycode, t_info *g)
 	if (keycode == W)
 	{
 		if (g->map[(int)(g->pos.x + g->dir_vec.x * m_s)][(int)(g->pos.y)] \
-		== '0')
+		<= '0')
 			g->pos.x += g->dir_vec.x * (m_s / 2);
 		if (g->map[(int)(g->pos.x)][(int)(g->pos.y + g->dir_vec.y * m_s)] \
-		== '0')
+		<= '0')
 			g->pos.y += g->dir_vec.y * (m_s / 2);
 	}
 	if (keycode == S)
 	{
 		if (g->map[(int)(g->pos.x - g->dir_vec.x * m_s)][(int)(g->pos.y)] \
-		== '0')
+		<= '0')
 			g->pos.x -= g->dir_vec.x * (m_s / 2);
 		if (g->map[(int)(g->pos.x)][(int)(g->pos.y - g->dir_vec.y * m_s)]\
-		== '0')
+		<= '0')
 			g->pos.y -= g->dir_vec.y * (m_s / 2);
 	}
 }
@@ -97,8 +97,10 @@ int	key_press(int keycode, t_info *g)
 		rotate(keycode, g);
 	if (keycode == A)
 		rotate(keycode, g);
-	if (keycode == K)
+	if (keycode == ONE)
 		mouse_vision(g);
+	if (keycode == K)
+		door_control(g);
 	return (0);
 }
 

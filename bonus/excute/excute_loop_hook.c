@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:09:30 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/13 14:44:15 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:49:53 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,33 @@ void	where_hit_wall(t_screen *s, t_info *game)
 		else
 			s->what_hit = 3;
 	}
+}
+
+void	draw_door(t_info *game, int x, t_screen *s, int door_num)
+{
+	int		y;
+	int		tex_y;
+	double	step_y;
+	double	tex_pos;
+
+	y = -1;
+	while (++y < s->draw[0])
+		game->screen.data[game->screen.width * y + x] = 0x00FF00;
+	step_y = 1.0 * game->door[door_num].height / s->line_height;
+	tex_pos = (s->draw[0] - HEIGHT / 2 + s->line_height / 2) * step_y;
+	y--;
+	while (++y < s->draw[1])
+	{
+		tex_y = (int)tex_pos & (game->door[door_num].height - 1);
+		tex_pos += step_y;
+		printf("%d\n", door_num);
+		game->screen.data[game->screen.width * y + x] = \
+			game->door[door_num].data[game->door[door_num].height \
+			* tex_y + s->tex_x];
+	}
+	y--;
+	while (++y < HEIGHT)
+		game->screen.data[game->screen.width * y + x] = 0x0000FF;
 }
 
 static void	draw_sprite(t_info *game, int x, int y)
@@ -93,5 +120,7 @@ int	draw_loop(t_info *game)
 	draw_minimap(game);
 	mlx_destroy_image(game->mlx, game->mini.img);
 	draw_sprite(game, 0, 0);
+	if (find_door(game) > 0)
+		draw_string(game);
 	return (0);
 }

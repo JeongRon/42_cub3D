@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:22:19 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/13 14:54:44 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:42:56 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@
 # define D	2
 # define W	13
 # define K	40
+# define ONE 18
 
 //MOUSE
 # define LEFT_CLICK		1
@@ -97,6 +98,7 @@ typedef struct s_info
 	int			ani;
 	int			ani_time;
 	int			mouse;
+	int			door_num;
 }	t_info;
 
 typedef struct t_screen
@@ -155,6 +157,12 @@ void	where_hit_wall(t_screen *s, t_info *game);
 void	draw_screen(t_info *game, int time);
 // excute_minimap
 void	draw_minimap(t_info *game);
+// excute door
+void	draw_door(t_info *game, int x, t_screen *screen, int time);
+void	draw_string(t_info *game);
+void	door_control(t_info *game);
+void	change_door(t_info *game);
+int		find_door(t_info *game);
 // excute_utils
 void	setting_mlx(t_info *game);
 void	*ft_memcpy(void *dst, const void *src, size_t n);

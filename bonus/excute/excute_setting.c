@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:58:44 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/13 14:37:58 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:48:37 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,5 @@ void	setting_mlx(t_info *game)
 	setting_mlx_dir_vec(game);
 	mlx_mouse_hide();
 	game->mouse = 1;
+	game->door_num = 0;
 }

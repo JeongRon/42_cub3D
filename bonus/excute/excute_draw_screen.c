@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 18:42:35 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/13 14:54:17 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:07:14 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,9 +127,10 @@ void	draw_screen(t_info *game, int time)
 		calculation_draw_size(&screen);
 		where_hit_wall(&screen, game);
 		where_tex_x(&screen, game);
-		// if (game->map[screen->map[0]][screen->map[1]] == 'D')
-		// 	line_texture2
-		line_texture(game, x, &screen, time);
+		if (game->map[screen.map[0]][screen.map[1]] == 'D')
+			draw_door(game, x, &screen, game->door_num);
+		else
+			line_texture(game, x, &screen, time);
 	}
 	mlx_put_image_to_window(game->mlx, game->win, game->screen.img, 0, 0);
 }
