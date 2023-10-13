@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   excute_setting.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:58:44 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/13 14:37:58 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:49:52 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,35 @@ static void	setting_mlx_dir_vec(t_info *game)
 			rotate(D, game);
 }
 
+static char	*setting_mlx_image_string(int num)
+{
+	char	*str;
+	int		i;
+
+	str = (char *)malloc(sizeof(char) * (16 + 1));
+	i = -1;
+	while (++i <= 16)
+		str[i] = '\0';
+	str = ft_strjoin(str, "./img/door??.xpm", 16);
+	if (!str)
+		ft_error("MALLOC");
+	if (num < 10)
+	{
+		str[10] = '0';
+		str[11] = '0' + num;
+	}
+	else
+	{
+		str[10] = '1';
+		str[11] = '0' + (num % 10);
+	}
+	return (str);
+}
+
 void	setting_mlx(t_info *game)
 {
-	int	i;
+	int		i;
+	char	*str;
 
 	game->mlx = mlx_init();
 	game->win = mlx_new_window(game->mlx, WIDTH, HEIGHT, "2D_MAP");
@@ -75,6 +101,14 @@ void	setting_mlx(t_info *game)
 		&(game->rider.width), &(game->rider.height));
 	game->boom.img = mlx_xpm_file_to_image(game->mlx, "./img/boom.xpm", \
 		&(game->boom.width), &(game->boom.height));
+	i = -1;
+	while (++i < 13)
+	{
+		str = setting_mlx_image_string(i);
+		game->door[i].img = mlx_xpm_file_to_image(game->mlx, str, \
+		&(game->door[i].width), &(game->door[i].height));
+		free(str);
+	}
 	//camera 시점인데 y=0.66이 fps게임해서 최적의 시점
 	game->camera.x = 0;
 	game->camera.y = 0.66;
