@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_validate_info.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 19:44:35 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/11 20:32:01 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:01:28 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	validate_info_map_char(t_info *info, int x, int y, char c)
 		while (info->map[x][++y])
 		{
 			c = info->map[x][y];
-			if (c == ' ' || c == '0' || c == '1')
+			if (c == ' ' || c == '0' || c == '1' || c == 'D')
 				continue ;
 			else if (c == 'N' || c == 'S' || c == 'W' || c == 'E')
 			{
@@ -102,7 +102,7 @@ void	validate_info_map_wall(t_info *info, int x, int y)
 				continue ;
 			else if (info->map[x][y] == '0' || info->map[x][y] == 'N' || \
 				info->map[x][y] == 'S' || info->map[x][y] == 'W' || \
-				info->map[x][y] == 'E')
+				info->map[x][y] == 'E' || info->map[x][y] == 'D')
 				search_surround_wall(info, x, y);
 		}
 	}
