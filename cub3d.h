@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:22:19 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/13 14:38:27 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/13 14:54:44 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,8 @@ typedef struct s_info
 	t_vec2		camera;
 	t_img		mini;
 	t_img		screen;
-	t_img		map_tex[5];
+	t_img		map_tex[4];
+	t_img		door[13];
 	t_img		sprite;
 	t_img		rider;
 	t_img		boom;

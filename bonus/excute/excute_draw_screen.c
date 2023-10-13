@@ -6,13 +6,13 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 18:42:35 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/12 17:14:12 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/13 14:54:17 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
-static void	line_texture2(t_info *game, int x, t_screen *s, int time)
+static void	line_texture(t_info *game, int x, t_screen *s, int time)
 {
 	int		y;
 	int		tex_y;
@@ -127,7 +127,9 @@ void	draw_screen(t_info *game, int time)
 		calculation_draw_size(&screen);
 		where_hit_wall(&screen, game);
 		where_tex_x(&screen, game);
-		line_texture2(game, x, &screen, time);
+		// if (game->map[screen->map[0]][screen->map[1]] == 'D')
+		// 	line_texture2
+		line_texture(game, x, &screen, time);
 	}
 	mlx_put_image_to_window(game->mlx, game->win, game->screen.img, 0, 0);
 }
