@@ -249,7 +249,7 @@ static char *xpm_[] = {
 "AX c #F4F4F3",
 "SX c #FAF6F1",
 "DX c #FDFBF3",
-"FX c white",
+"FX c #994C00",
 "GX c #FEFEFE",
 "HX c #FEFEFD",
 "JX c #FFFFFF",

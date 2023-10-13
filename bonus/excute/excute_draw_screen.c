@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   excute_draw_screen.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 18:42:35 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/13 16:04:55 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/13 18:54:11 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	line_texture(t_info *game, int x, t_screen *s, int time)
 
 	y = -1;
 	while (++y < s->draw[0])
-		game->screen.data[game->screen.width * y + x] = 0x00FF00;
+		game->screen.data[game->screen.width * y + x] = game->c_color;
 	step_y = 1.0 * game->map_tex[s->what_hit].height / s->line_height;
 	tex_pos = (s->draw[0] - HEIGHT / 2 + s->line_height / 2) * step_y;
 	y--;
@@ -36,7 +36,7 @@ static void	line_texture(t_info *game, int x, t_screen *s, int time)
 	}
 	y--;
 	while (++y < HEIGHT)
-		game->screen.data[game->screen.width * y + x] = 0x0000FF;
+		game->screen.data[game->screen.width * y + x] = game->f_color;
 }
 
 static void	calculation_draw_size(t_screen *s)

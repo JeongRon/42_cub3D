@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:22:19 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/13 16:37:23 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/13 18:28:03 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,9 @@ typedef struct s_info
 	char		*ea;
 	//	-->	t_img		map_texture[4];
 	int			f[3];
+	int			f_color;
 	int			c[3];
+	int			c_color;
 	int			info_cnt;
 	char		pos_dir;
 	int			dx[8];

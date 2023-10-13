@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   excute_door_event.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 15:10:12 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/13 16:40:52 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/13 18:55:20 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ void	change_door(t_info *game)
 	x = (int)game->pos.x;
 	y = (int)game->pos.y;
 	if (game->map[x - 1][y] == 'D')
-			game->map[x - 1][y] = '#';
+		game->map[x - 1][y] = '#';
 	else if (game->map[x + 1][y] == 'D')
-			game->map[x + 1][y] = '#';
+		game->map[x + 1][y] = '#';
 	else if (game->map[x][y - 1] == 'D')
-			game->map[x][y - 1] = '#';
+		game->map[x][y - 1] = '#';
 	else if (game->map[x][y + 1] == 'D')
-			game->map[x][y + 1] = '#';
+		game->map[x][y + 1] = '#';
 	else if (game->map[x - 1][y] == '#')
 		game->map[x - 1][y] = 'D';
 	else if (game->map[x + 1][y] == '#')

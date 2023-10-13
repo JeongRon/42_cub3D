@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   excute_loop_hook.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:09:30 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/13 16:37:10 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/13 18:58:10 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	draw_door(t_info *game, int x, t_screen *s, int door_num)
 
 	y = -1;
 	while (++y < s->draw[0])
-		game->screen.data[game->screen.width * y + x] = 0x00FF00;
+		game->screen.data[game->screen.width * y + x] = game->c_color;
 	step_y = 1.0 * game->door[door_num].height / s->line_height;
 	tex_pos = (s->draw[0] - HEIGHT / 2 + s->line_height / 2) * step_y;
 	y--;
@@ -68,13 +68,13 @@ void	draw_door(t_info *game, int x, t_screen *s, int door_num)
 	}
 	y--;
 	while (++y < HEIGHT)
-		game->screen.data[game->screen.width * y + x] = 0x0000FF;
+		game->screen.data[game->screen.width * y + x] = game->f_color;
 }
 
 static void	draw_sprite(t_info *game, int x, int y)
 {
 	if (game->mouse == 0)
-	{	
+	{
 		game->ani_time = 0;
 		return ;
 	}
@@ -121,7 +121,7 @@ int	draw_loop(t_info *game)
 	draw_sprite(game, 0, 0);
 	if (find_door(game) > 0)
 		mlx_string_put(game->mlx, game->win, (WIDTH / 2) - 50, \
-		HEIGHT / 3, 0xFFFFFF, "Push the 'K'.");
+		HEIGHT / 3, 0x000000, "Push the 'K'.");
 	rotate_door(game);
 	return (0);
 }

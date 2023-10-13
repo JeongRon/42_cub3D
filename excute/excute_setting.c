@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   excute_setting.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:58:44 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/13 16:21:50 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/13 19:04:07 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,6 @@ void	setting_mlx(t_info *game, int k)
 	setting_mlx_dir_vec(game);
 
 	//frame  -> 아직 안함 고민중인 부분
-	game->frame.time = 0;
-	game->frame.old_time = 0;
+	// game->frame.time = 0;
+	// game->frame.old_time = 0;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   excute_hook.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:09:03 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/11 20:07:56 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/13 19:04:24 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,11 @@ static void	move(int keycode, t_info *g)
 //temp value maybe | m_s is move speed / r_s is rotate speed
 int	key_press(int keycode, t_info *g)
 {
-	double	m_s;
-	double	r_s;
+	// double	m_s;
+	// double	r_s;
 
-	m_s = 0.5;
-	r_s = PI / 36;
+	// m_s = 0.5;
+	// r_s = PI / 36;
 	if (keycode == KEY_ESC)
 		exit(0);
 	if (keycode == W)
