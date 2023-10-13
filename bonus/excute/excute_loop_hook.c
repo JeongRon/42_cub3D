@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:09:30 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/13 15:49:53 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/13 16:37:10 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void	draw_door(t_info *game, int x, t_screen *s, int door_num)
 	{
 		tex_y = (int)tex_pos & (game->door[door_num].height - 1);
 		tex_pos += step_y;
-		printf("%d\n", door_num);
 		game->screen.data[game->screen.width * y + x] = \
 			game->door[door_num].data[game->door[door_num].height \
 			* tex_y + s->tex_x];
@@ -121,6 +120,8 @@ int	draw_loop(t_info *game)
 	mlx_destroy_image(game->mlx, game->mini.img);
 	draw_sprite(game, 0, 0);
 	if (find_door(game) > 0)
-		draw_string(game);
+		mlx_string_put(game->mlx, game->win, (WIDTH / 2) - 50, \
+		HEIGHT / 3, 0xFFFFFF, "Push the 'K'.");
+	rotate_door(game);
 	return (0);
 }

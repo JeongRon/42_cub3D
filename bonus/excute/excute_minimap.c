@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:48:18 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/13 14:16:56 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/13 16:43:41 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static int	color_map(t_info *game, int x, int y, int px, int py)
 		color = 0xFFFFFF;
 	else if (game->map[y][x] == '1')
 		color = 0x000000;
+	else if (game->map[y][x] == 'D' || game->map[y][x] == '#')
+		color = 0x8B4513;
 	else
 		color = 0x000000;
 	while (++j < MINTILE)

@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 15:10:12 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/13 15:48:16 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/13 16:40:52 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ void	change_door(t_info *game)
 	x = (int)game->pos.x;
 	y = (int)game->pos.y;
 	if (game->map[x - 1][y] == 'D')
-		game->map[x - 1][y] = '#';
+			game->map[x - 1][y] = '#';
 	else if (game->map[x + 1][y] == 'D')
-		game->map[x + 1][y] = '#';
+			game->map[x + 1][y] = '#';
 	else if (game->map[x][y - 1] == 'D')
-		game->map[x][y - 1] = '#';
+			game->map[x][y - 1] = '#';
 	else if (game->map[x][y + 1] == 'D')
-		game->map[x][y + 1] = '#';
+			game->map[x][y + 1] = '#';
 	else if (game->map[x - 1][y] == '#')
 		game->map[x - 1][y] = 'D';
 	else if (game->map[x + 1][y] == '#')
@@ -62,13 +62,11 @@ void	door_control(t_info *game)
 		game->door_num++;
 }
 
-void	draw_string(t_info *game)
+void	rotate_door(t_info *game)
 {
-	mlx_string_put(game->mlx, game->win, (WIDTH / 2) - 50, \
-	HEIGHT / 3, 0xFFFFFF, "Push the 'K'.");
 	if (game->door_num > 0)
 	{
-		if ((game->ani % 10) == 0 && game->door_num < 12)
+		if ((game->ani % 5) == 0 && game->door_num < 12)
 			game->door_num++;
 		if (game->door_num == 12)
 		{

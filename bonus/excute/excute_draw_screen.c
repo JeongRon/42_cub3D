@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   excute_draw_screen.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 18:42:35 by dongmiki          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/10/13 15:07:14 by dongmiki         ###   ########.fr       */
-=======
-/*   Updated: 2023/10/13 15:55:31 by jeongrol         ###   ########.fr       */
->>>>>>> e802a13863dd3fa52471f7dfb408401849254f87
+/*   Updated: 2023/10/13 16:04:55 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,16 +127,10 @@ void	draw_screen(t_info *game, int time)
 		calculation_draw_size(&screen);
 		where_hit_wall(&screen, game);
 		where_tex_x(&screen, game);
-<<<<<<< HEAD
 		if (game->map[screen.map[0]][screen.map[1]] == 'D')
 			draw_door(game, x, &screen, game->door_num);
 		else
 			line_texture(game, x, &screen, time);
-=======
-		// if (game->map[screen->map[0]][screen->map[1]] == 'D')
-			// line_texture2(game, x, &screen, time);
-		line_texture(game, x, &screen, time);
->>>>>>> e802a13863dd3fa52471f7dfb408401849254f87
 	}
 	mlx_put_image_to_window(game->mlx, game->win, game->screen.img, 0, 0);
 }

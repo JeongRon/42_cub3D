@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:22:14 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/13 15:43:52 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/13 16:20:33 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int ac, char **av)
 	t_info	info;
 	parsing_cub3d(ac, av, &info);
 	// TEST_CODE 넣는 자리
-	setting_mlx(&info);
+	setting_mlx(&info, -1);
 
 	info.ani = 0;
 	info.ani_time = 0;

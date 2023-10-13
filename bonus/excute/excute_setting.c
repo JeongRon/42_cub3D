@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   excute_setting.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:58:44 by dongmiki          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/10/13 15:48:37 by dongmiki         ###   ########.fr       */
-=======
-/*   Updated: 2023/10/13 15:49:52 by jeongrol         ###   ########.fr       */
->>>>>>> e802a13863dd3fa52471f7dfb408401849254f87
+/*   Updated: 2023/10/13 16:34:59 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +37,6 @@ static void	setting_mlx_map_tex(t_info *game, t_img *map_tex, int dir)
 	}
 	map_tex->data = (int *)mlx_get_data_addr(map_tex->img, &(map_tex->bpp), \
 	&(map_tex->line_size), &(map_tex->endian));
-	game->sprite.img = mlx_xpm_file_to_image(game->mlx, "./img/crosshair.xpm", \
-		&(game->sprite.width), &(game->sprite.height));
 }
 
 // dir_vec -> 북: 0,1/남 0,-1/ 동1,0/서-1,0
@@ -91,9 +85,18 @@ static char	*setting_mlx_image_string(int num)
 	return (str);
 }
 
-void	setting_mlx(t_info *game)
+static void	xpm_image(t_info *game)
 {
-	int		i;
+	game->sprite.img = mlx_xpm_file_to_image(game->mlx, "./img/crosshair.xpm", \
+		&(game->sprite.width), &(game->sprite.height));
+	game->rider.img = mlx_xpm_file_to_image(game->mlx, "./img/rider.xpm", \
+		&(game->rider.width), &(game->rider.height));
+	game->boom.img = mlx_xpm_file_to_image(game->mlx, "./img/boom.xpm", \
+		&(game->boom.width), &(game->boom.height));
+}
+
+void	setting_mlx(t_info *game, int i)
+{
 	char	*str;
 
 	game->mlx = mlx_init();
@@ -101,19 +104,18 @@ void	setting_mlx(t_info *game)
 	i = -1;
 	while (++i < 4)
 		setting_mlx_map_tex(game, &(game->map_tex[i]), i);
-	game->rider.img = mlx_xpm_file_to_image(game->mlx, "./img/rider.xpm", \
-		&(game->rider.width), &(game->rider.height));
-	game->boom.img = mlx_xpm_file_to_image(game->mlx, "./img/boom.xpm", \
-		&(game->boom.width), &(game->boom.height));
 	i = -1;
+	xpm_image(game);
 	while (++i < 13)
 	{
 		str = setting_mlx_image_string(i);
 		game->door[i].img = mlx_xpm_file_to_image(game->mlx, str, \
 		&(game->door[i].width), &(game->door[i].height));
+		game->door[i].data = (int *)mlx_get_data_addr(game->door[i].img, \
+		&(game->door[i].bpp), &(game->door[i].line_size), \
+		&(game->door[i].endian));
 		free(str);
 	}
-	//camera 시점인데 y=0.66이 fps게임해서 최적의 시점
 	game->camera.x = 0;
 	game->camera.y = 0.66;
 	setting_mlx_dir_vec(game);

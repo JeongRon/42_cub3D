@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:58:44 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/11 19:43:11 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/13 16:21:50 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,11 @@ static void	setting_mlx_dir_vec(t_info *game)
 			rotate(A, game);
 }
 
-void	setting_mlx(t_info *game)
+void	setting_mlx(t_info *game, int k)
 {
 	int	i;
 
+	(void)k;
 	game->mlx = mlx_init();
 	game->win = mlx_new_window(game->mlx, WIDTH, HEIGHT, "2D_MAP");
 	i = -1;
