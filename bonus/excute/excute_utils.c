@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 19:57:22 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/12 17:55:49 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/13 14:41:45 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,12 @@ void	mouse_event(t_info *game)
 	int	x;
 	int	y;
 
+	if (game->mouse == 0)
+		return ;
 	mlx_mouse_get_pos(game->win, &x, &y);
-	if (x > 740)
+	if (x > 690)
 		rotate(D, game);
-	else if (x < 540)
+	else if (x < 590)
 		rotate(A, game);
 	mlx_mouse_move(game->win, 640, 480);
 }

@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:22:19 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/12 18:15:08 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/13 14:38:27 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@
 # define S	1
 # define D	2
 # define W	13
+# define K	40
 
 //MOUSE
 # define LEFT_CLICK		1
@@ -63,12 +64,6 @@ typedef struct s_vec2
 	double	y;
 }	t_vec2;
 
-typedef struct s_frame
-{
-	double	time;
-	double	old_time;
-}	t_frame;
-
 typedef struct s_info
 {
 	void		*mlx;
@@ -92,15 +87,15 @@ typedef struct s_info
 	t_vec2		dir_vec;
 	t_vec2		pos;
 	t_vec2		camera;
-	t_img		mini;//mini_map no useable madatory
+	t_img		mini;
 	t_img		screen;
 	t_img		map_tex[5];
 	t_img		sprite;
 	t_img		rider;
 	t_img		boom;
-	t_frame		frame;
 	int			ani;
 	int			ani_time;
+	int			mouse;
 }	t_info;
 
 typedef struct t_screen

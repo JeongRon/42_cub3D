@@ -1,7 +1,7 @@
-NO ./img/coin.xpm
-SO ./img/trash.xpm
-WE ./img/player.xpm
-EA ./img/wall.xpm
+NO ./img/N.xpm
+SO ./img/S.xpm
+WE ./img/W.xpm
+EA ./img/E.xpm
 
 F 220,100,0
 C 225,30,255

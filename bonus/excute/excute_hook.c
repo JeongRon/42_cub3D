@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:09:03 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/12 17:50:52 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/13 14:40:44 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	rotate(int keycode, t_info *g)
 	double	temp;
 
 	r_s = PI / 36;
-	if (keycode == D)
+	if (keycode == A)
 	{
 		temp = g->dir_vec.x;
 		g->dir_vec.x = g->dir_vec.x * cos(-r_s) - g->dir_vec.y * sin(-r_s);
@@ -28,7 +28,7 @@ void	rotate(int keycode, t_info *g)
 		g->camera.x = g->camera.x * cos(-r_s) - g->camera.y * sin(-r_s);
 		g->camera.y = temp * sin(-r_s) + g->camera.y * cos(-r_s);
 	}
-	if (keycode == A)
+	if (keycode == D)
 	{
 		temp = g->dir_vec.x;
 		g->dir_vec.x = g->dir_vec.x * cos(r_s) - g->dir_vec.y * sin(r_s);
@@ -65,6 +65,20 @@ static void	move(int keycode, t_info *g)
 	}
 }
 
+static void	mouse_vision(t_info *game)
+{
+	if (game->mouse == 1)
+	{
+		mlx_mouse_show();
+		game->mouse = 0;
+	}
+	else
+	{
+		mlx_mouse_hide();
+		game->mouse = 1;
+	}
+}
+
 //temp value maybe | m_s is move speed / r_s is rotate speed
 int	key_press(int keycode, t_info *g)
 {
@@ -83,6 +97,8 @@ int	key_press(int keycode, t_info *g)
 		rotate(keycode, g);
 	if (keycode == A)
 		rotate(keycode, g);
+	if (keycode == K)
+		mouse_vision(g);
 	return (0);
 }
 

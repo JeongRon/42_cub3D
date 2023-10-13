@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:58:44 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/12 18:15:34 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/13 14:37:58 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	setting_mlx_dir_vec(t_info *game)
 	int	temp;
 
 	temp = -1;
-	game->dir_vec.x = -1;
+	game->dir_vec.x = 1;
 	game->dir_vec.y = 0;
 	if (game->pos_dir == 'N')
 		return ;
@@ -56,10 +56,10 @@ static void	setting_mlx_dir_vec(t_info *game)
 			rotate(D, game);
 	else if (game->pos_dir == 'E')
 		while (++temp < 18)
-			rotate(D, game);
+			rotate(A, game);
 	else if (game->pos_dir == 'W')
 		while (++temp < 18)
-			rotate(A, game);
+			rotate(D, game);
 }
 
 void	setting_mlx(t_info *game)
@@ -80,8 +80,5 @@ void	setting_mlx(t_info *game)
 	game->camera.y = 0.66;
 	setting_mlx_dir_vec(game);
 	mlx_mouse_hide();
-
-	//frame  -> 아직 안함 고민중인 부분
-	game->frame.time = 0;
-	game->frame.old_time = 0;
+	game->mouse = 1;
 }

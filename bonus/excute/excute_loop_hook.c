@@ -6,7 +6,7 @@
 /*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:09:30 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/12 18:19:45 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/13 14:44:15 by dongmiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,13 @@ void	where_hit_wall(t_screen *s, t_info *game)
 	}
 }
 
-static void	draw_sprite(t_info *game)
+static void	draw_sprite(t_info *game, int x, int y)
 {
-	int	x;
-	int	y;
-
+	if (game->mouse == 0)
+	{	
+		game->ani_time = 0;
+		return ;
+	}
 	x = WIDTH - (game->ani_time);
 	y = (game->ani_time / 2);
 	mlx_put_image_to_window(game->mlx, game->win, game->sprite.img, \
@@ -90,6 +92,6 @@ int	draw_loop(t_info *game)
 	&game->mini.bpp, &game->mini.line_size, &game->mini.endian);
 	draw_minimap(game);
 	mlx_destroy_image(game->mlx, game->mini.img);
-	draw_sprite(game);
+	draw_sprite(game, 0, 0);
 	return (0);
 }
