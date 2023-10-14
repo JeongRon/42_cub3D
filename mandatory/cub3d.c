@@ -6,11 +6,11 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:22:14 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/13 19:03:42 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/10/15 00:37:31 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 static void	free_info(t_info *info)
 {

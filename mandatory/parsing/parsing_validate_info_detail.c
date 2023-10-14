@@ -6,11 +6,11 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 00:21:57 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/15 00:24:13 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/10/15 00:37:23 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../../cub3d.h"
 
 static void	search_surround_wall(t_info *info, int x, int y)
 {

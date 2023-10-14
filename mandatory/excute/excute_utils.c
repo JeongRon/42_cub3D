@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   excute_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 19:57:22 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/09 20:01:29 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/15 00:37:07 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../../cub3d.h"
 
 double	ft_abs(double num)
 {

@@ -6,11 +6,11 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:58:44 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/14 22:28:36 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/10/15 00:37:04 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../../cub3d.h"
 
 //map_tex 0:북/ 1:남/ 2:서/ 3:동 -> pasing
 static void	setting_mlx_map_tex(t_info *game, t_img *map_tex, int dir)

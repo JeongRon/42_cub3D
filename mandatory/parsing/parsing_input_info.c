@@ -6,11 +6,11 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 21:08:21 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/03 19:06:26 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/10/15 00:37:17 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../../cub3d.h"
 
 static int	input_info_element_texture(char **tmp, t_info *info)
 {

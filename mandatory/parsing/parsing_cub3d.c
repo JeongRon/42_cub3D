@@ -6,11 +6,11 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:29:43 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/15 00:24:23 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/10/15 00:37:13 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../../cub3d.h"
 
 static void	initialize_info_dx_dy(t_info *info)
 {

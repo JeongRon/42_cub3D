@@ -6,7 +6,7 @@
 #    By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/25 18:16:30 by jeongrol          #+#    #+#              #
-#    Updated: 2023/10/15 00:30:03 by jeongrol         ###   ########.fr        #
+#    Updated: 2023/10/15 00:38:57 by jeongrol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,22 +21,22 @@ RM = rm -f
 
 HEADER	=	cub3d.h
 
-SRCS	=	cub3d.c \
+SRCS	=	mandatory/cub3d.c \
 			get_next_line/get_next_line_utils.c \
 			get_next_line/get_next_line.c \
 			get_next_line/get_next_line_cub3d.c \
-			parsing/parsing_cub3d.c \
-			parsing/parsing_input_info.c \
-			parsing/parsing_validate_info_basic.c \
-			parsing/parsing_validate_info_detail.c \
+			mandatory/parsing/parsing_cub3d.c \
+			mandatory/parsing/parsing_input_info.c \
+			mandatory/parsing/parsing_validate_info_basic.c \
+			mandatory/parsing/parsing_validate_info_detail.c \
 			utils/utils_cub3d.c \
 			utils/utils_libft.c \
 			utils/utils_split.c \
-			excute/excute_draw_screen.c \
-			excute/excute_hook.c \
-			excute/excute_loop_hook.c \
-			excute/excute_setting.c \
-			excute/excute_utils.c
+			mandatory/excute/excute_draw_screen.c \
+			mandatory/excute/excute_hook.c \
+			mandatory/excute/excute_loop_hook.c \
+			mandatory/excute/excute_setting.c \
+			mandatory/excute/excute_utils.c
 			
 B_SRCS	=	bonus/cub3d.c \
 			get_next_line/get_next_line_utils.c \
