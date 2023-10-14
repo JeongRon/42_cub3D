@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_validate_info.c                            :+:      :+:    :+:   */
+/*   parsing_validate_info_basic.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 19:44:35 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/09 21:04:36 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/15 00:27:49 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../../cub3d.h"
 
 // info-element 유효성 검사 함수
 void	validate_info_element(t_info *info)
@@ -50,7 +50,7 @@ void	validate_info_map_char(t_info *info, int x, int y, char c)
 		while (info->map[x][++y])
 		{
 			c = info->map[x][y];
-			if (c == ' ' || c == '0' || c == '1')
+			if (c == ' ' || c == '0' || c == '1' || c == 'D')
 				continue ;
 			else if (c == 'N' || c == 'S' || c == 'W' || c == 'E')
 			{
@@ -65,45 +65,4 @@ void	validate_info_map_char(t_info *info, int x, int y, char c)
 	}
 	if (info->pos_dir == 'A')
 		ft_error("file info-map position error");
-}
-
-static void	search_surround_wall(t_info *info, int x, int y)
-{
-	int	i;
-	int	nx;
-	int	ny;
-
-	i = -1;
-	while (++i < 8)
-	{
-		nx = x + info->dx[i];
-		ny = y + info->dy[i];
-		if ((0 <= nx && nx < info->row) && (0 <= ny && ny < info->col))
-		{
-			if (info->map[nx][ny] == ' ')
-				ft_error("file info-map-wall error");
-			else
-				continue ;
-		}
-		else
-			ft_error("file info-map-wall error");
-	}
-}
-
-// info-map 벽 둘러싸였는지 확인하는 함수 
-void	validate_info_map_wall(t_info *info, int x, int y)
-{
-	while (info->map[++x])
-	{
-		y = -1;
-		while (info->map[x][++y])
-		{
-			if (info->map[x][y] == ' ' || info->map[x][y] == '1')
-				continue ;
-			else if (info->map[x][y] == '0' || info->map[x][y] == 'N' || \
-				info->map[x][y] == 'S' || info->map[x][y] == 'W' || \
-				info->map[x][y] == 'E')
-				search_surround_wall(info, x, y);
-		}
-	}
 }

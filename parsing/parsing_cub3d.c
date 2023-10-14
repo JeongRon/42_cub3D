@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:29:43 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/13 19:01:52 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/10/15 00:24:23 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,5 +123,6 @@ void	parsing_cub3d(int ac, char **av, t_info *info)
 	info->f_color = (info->f[0] << 16) | (info->f[1] << 8) | (info->f[2]);
 	validate_info_map_char(info, -1, -1, 'A');
 	recreate_info_map(info, -1, -1, 0);
+	validate_info_map_emptyline(info, -1, -1, 0);
 	validate_info_map_wall(info, -1, -1);
 }

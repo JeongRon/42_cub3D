@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+         #
+#    By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/25 18:16:30 by jeongrol          #+#    #+#              #
-#    Updated: 2023/10/13 15:45:17 by dongmiki         ###   ########.fr        #
+#    Updated: 2023/10/15 00:30:03 by jeongrol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ SRCS	=	cub3d.c \
 			get_next_line/get_next_line_cub3d.c \
 			parsing/parsing_cub3d.c \
 			parsing/parsing_input_info.c \
-			parsing/parsing_validate_info.c \
+			parsing/parsing_validate_info_basic.c \
+			parsing/parsing_validate_info_detail.c \
 			utils/utils_cub3d.c \
 			utils/utils_libft.c \
 			utils/utils_split.c \
@@ -43,7 +44,8 @@ B_SRCS	=	bonus/cub3d.c \
 			get_next_line/get_next_line_cub3d.c \
 			bonus/parsing/parsing_cub3d.c \
 			bonus/parsing/parsing_input_info.c \
-			bonus/parsing/parsing_validate_info.c \
+			bonus/parsing/parsing_validate_info_basic.c \
+			bonus/parsing/parsing_validate_info_detail.c \
 			utils/utils_cub3d.c \
 			utils/utils_libft.c \
 			utils/utils_split.c \
