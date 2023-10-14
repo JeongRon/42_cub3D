@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:58:44 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/14 21:40:53 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/10/14 22:28:36 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ static void	setting_mlx_map_tex(t_info *game, t_img *map_tex, int dir)
 		map_tex->img = mlx_xpm_file_to_image(game->mlx, game->ea, \
 		&(map_tex->width), &(map_tex->height));
 	}
+	if (!map_tex->img)
+		ft_error("IMAGE NOT FOUND");
 	map_tex->data = (int *)mlx_get_data_addr(map_tex->img, &(map_tex->bpp), \
 	&(map_tex->line_size), &(map_tex->endian));
 }
