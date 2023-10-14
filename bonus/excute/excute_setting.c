@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   excute_setting.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dongmiki <dongmiki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:58:44 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/13 16:34:59 by dongmiki         ###   ########.fr       */
+/*   Updated: 2023/10/14 21:02:08 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,18 @@ static void	setting_mlx_dir_vec(t_info *game)
 	int	temp;
 
 	temp = -1;
-	game->dir_vec.x = 1;
+	game->dir_vec.x = -1;
 	game->dir_vec.y = 0;
+	rotate(A, game);
 	if (game->pos_dir == 'N')
 		return ;
 	else if (game->pos_dir == 'S')
 		while (++temp < 36)
 			rotate(D, game);
-	else if (game->pos_dir == 'E')
+	else if (game->pos_dir == 'W')
 		while (++temp < 18)
 			rotate(A, game);
-	else if (game->pos_dir == 'W')
+	else if (game->pos_dir == 'E')
 		while (++temp < 18)
 			rotate(D, game);
 }

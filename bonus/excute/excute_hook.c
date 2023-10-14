@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:09:03 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/13 19:09:40 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/10/14 20:55:52 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	rotate(int keycode, t_info *g)
 	double	temp;
 
 	r_s = PI / 36;
-	if (keycode == A)
+	if (keycode == D)
 	{
 		temp = g->dir_vec.x;
 		g->dir_vec.x = g->dir_vec.x * cos(-r_s) - g->dir_vec.y * sin(-r_s);
@@ -28,7 +28,7 @@ void	rotate(int keycode, t_info *g)
 		g->camera.x = g->camera.x * cos(-r_s) - g->camera.y * sin(-r_s);
 		g->camera.y = temp * sin(-r_s) + g->camera.y * cos(-r_s);
 	}
-	if (keycode == D)
+	if (keycode == A)
 	{
 		temp = g->dir_vec.x;
 		g->dir_vec.x = g->dir_vec.x * cos(r_s) - g->dir_vec.y * sin(r_s);
