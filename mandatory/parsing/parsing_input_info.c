@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 21:08:21 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/15 00:37:17 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/10/15 15:17:35 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ static void	input_info_element(char *line, t_info *info, int flag)
 			flag = input_info_element_texture(tmp, info);
 		else
 			flag = FAIL;
-	}	
+	}
 	else if ((ft_strcmp(tmp[0], "F") == 0 || ft_strcmp(tmp[0], "C") == 0))
 	{
 		if (ft_two_strlen(tmp) == 2)
@@ -106,7 +106,6 @@ static void	input_info_map(char *line, t_info *info)
 	tmp_map = (char **)malloc(sizeof(char *) * (i + 2));
 	if (!tmp_map)
 		ft_error("MALLOC");
-	// map 배열 복사해서 tmp_map에 넣기 + line 추가
 	i = 0;
 	if (info->map)
 	{
@@ -118,7 +117,6 @@ static void	input_info_map(char *line, t_info *info)
 	}
 	tmp_map[i] = ft_strdup(line);
 	tmp_map[i + 1] = NULL;
-	// map free -> map 배열 만들어진 tmp_map 배열로 복사
 	ft_two_free(info->map);
 	info->map = ft_two_strdup(tmp_map);
 	ft_two_free(tmp_map);

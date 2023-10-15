@@ -6,13 +6,12 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:58:44 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/15 00:37:04 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/10/15 15:19:57 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
-//map_tex 0:북/ 1:남/ 2:서/ 3:동 -> pasing
 static void	setting_mlx_map_tex(t_info *game, t_img *map_tex, int dir)
 {
 	if (dir == 0)
@@ -41,7 +40,6 @@ static void	setting_mlx_map_tex(t_info *game, t_img *map_tex, int dir)
 	&(map_tex->line_size), &(map_tex->endian));
 }
 
-// dir_vec -> 북: 0,1/남 0,-1/ 동1,0/서-1,0
 static void	setting_mlx_dir_vec(t_info *game)
 {
 	int	temp;
@@ -72,12 +70,7 @@ void	setting_mlx(t_info *game, int k)
 	i = -1;
 	while (++i < 4)
 		setting_mlx_map_tex(game, &(game->map_tex[i]), i);
-	//camera 시점인데 y=0.66이 fps게임해서 최적의 시점
 	game->camera.x = 0;
 	game->camera.y = 0.66;
 	setting_mlx_dir_vec(game);
-
-	//frame  -> 아직 안함 고민중인 부분
-	// game->frame.time = 0;
-	// game->frame.old_time = 0;
 }

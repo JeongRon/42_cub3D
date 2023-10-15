@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:09:30 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/13 18:58:10 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/10/15 15:27:30 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	where_tex_x(t_screen *s, t_info *game)
 	else
 		hit_wall_x = game->pos.x + (s->ray_distance * s->ray.x);
 	hit_wall_x -= floor((hit_wall_x));
-
 	tex_x = (int)(hit_wall_x * (double)game->map_tex[s->what_hit].height);
 	s->tex_x = tex_x;
 }

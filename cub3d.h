@@ -6,14 +6,13 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:22:19 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/15 00:25:54 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/10/15 15:41:54 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
@@ -69,12 +68,10 @@ typedef struct s_info
 {
 	void		*mlx;
 	void		*win;
-	// delete
 	char		*no;
 	char		*so;
 	char		*we;
 	char		*ea;
-	//	-->	t_img		map_texture[4];
 	int			f[3];
 	int			f_color;
 	int			c[3];
@@ -83,7 +80,6 @@ typedef struct s_info
 	char		pos_dir;
 	int			dx[8];
 	int			dy[8];
-	//excute
 	int			row;
 	int			col;
 	char		**map;

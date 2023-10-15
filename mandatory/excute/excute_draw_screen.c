@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 18:42:35 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/15 00:36:53 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/10/15 15:18:24 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ static void	calculation_draw_size(t_screen *s)
 	s->line_height = line_height;
 }
 
-//Digital Differential Analyzer
 static void	dda_and_vertical_distance(t_screen *s, t_info *game, int hit)
 {
 	while (hit == 0)

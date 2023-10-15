@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 18:46:08 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/09/30 11:38:45 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/10/15 15:26:00 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ char	*ft_strjoin(char *buff, char *tmp, int tmp_len)
 	{
 		join_buff[i] = buff[i];
 		i++;
-	}	
+	}
 	i = 0;
 	while (i < tmp_len)
 	{

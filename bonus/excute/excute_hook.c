@@ -6,13 +6,12 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:09:03 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/14 20:55:52 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/10/15 15:23:01 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
-//r_s is temp value | maybe change info->frame rotate_speed
 void	rotate(int keycode, t_info *g)
 {
 	double	r_s;
@@ -39,7 +38,6 @@ void	rotate(int keycode, t_info *g)
 	}
 }
 
-//m_s is temp value | maybe change info -> frame move_speed
 static void	move(int keycode, t_info *g)
 {
 	double	m_s;
@@ -59,7 +57,7 @@ static void	move(int keycode, t_info *g)
 		if (g->map[(int)(g->pos.x - g->dir_vec.x * m_s)][(int)(g->pos.y)] \
 		<= '0')
 			g->pos.x -= g->dir_vec.x * (m_s / 2);
-		if (g->map[(int)(g->pos.x)][(int)(g->pos.y - g->dir_vec.y * m_s)]\
+		if (g->map[(int)(g->pos.x)][(int)(g->pos.y - g->dir_vec.y * m_s)] \
 		<= '0')
 			g->pos.y -= g->dir_vec.y * (m_s / 2);
 	}
@@ -79,14 +77,8 @@ static void	mouse_vision(t_info *game)
 	}
 }
 
-//temp value maybe | m_s is move speed / r_s is rotate speed
 int	key_press(int keycode, t_info *g)
 {
-	// double	m_s;
-	// double	r_s;
-
-	// m_s = 0.5;
-	// r_s = PI / 36;
 	if (keycode == KEY_ESC)
 		exit(0);
 	if (keycode == W)

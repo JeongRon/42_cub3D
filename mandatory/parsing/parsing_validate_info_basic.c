@@ -6,13 +6,12 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 19:44:35 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/15 00:37:20 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/10/15 15:17:52 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
-// info-element 유효성 검사 함수
 void	validate_info_element(t_info *info)
 {
 	int	i;
@@ -22,7 +21,7 @@ void	validate_info_element(t_info *info)
 	{
 		if (!((0 <= info->f[i] && info->f[i] <= 255) && \
 			(0 <= info->c[i] && info->c[i] <= 255)))
-			ft_error("file info-element-number error"); // f, c 배열 안의 값이 0~255 아니면 에러
+			ft_error("file info-element-number error");
 	}
 	if (ft_strcmp(info->no, info->so) == 0 || \
 		ft_strcmp(info->no, info->we) == 0 || \
@@ -30,7 +29,7 @@ void	validate_info_element(t_info *info)
 		ft_strcmp(info->so, info->we) == 0 || \
 		ft_strcmp(info->so, info->ea) == 0 || \
 		ft_strcmp(info->we, info->ea) == 0)
-		ft_error("file info-element-texture error"); // 동서남북 중복된 텍스처 있으면 에러
+		ft_error("file info-element-texture error");
 }
 
 static void	input_pos_dir(t_info *info, int x, int y, char c)
@@ -41,7 +40,6 @@ static void	input_pos_dir(t_info *info, int x, int y, char c)
 	info->map[x][y] = '0';
 }
 
-// info-map 허용한 문자들 확인하는 함수
 void	validate_info_map_char(t_info *info, int x, int y, char c)
 {
 	while (info->map[++x])

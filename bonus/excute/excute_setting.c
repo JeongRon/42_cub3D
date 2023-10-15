@@ -6,13 +6,12 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:58:44 by dongmiki          #+#    #+#             */
-/*   Updated: 2023/10/14 22:25:47 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/10/15 15:23:31 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
-//map_tex 0:북/ 1:남/ 2:서/ 3:동 -> pasing
 static void	setting_mlx_map_tex(t_info *game, t_img *map_tex, int dir)
 {
 	if (dir == 0)
@@ -41,7 +40,6 @@ static void	setting_mlx_map_tex(t_info *game, t_img *map_tex, int dir)
 	&(map_tex->line_size), &(map_tex->endian));
 }
 
-// dir_vec -> 북: 0,1/남 0,-1/ 동1,0/서-1,0
 static void	setting_mlx_dir_vec(t_info *game)
 {
 	int	temp;

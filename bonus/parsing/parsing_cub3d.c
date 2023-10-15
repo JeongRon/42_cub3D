@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:29:43 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/15 00:29:06 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/10/15 15:21:32 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ static void	initialize_info_dx_dy(t_info *info)
 	info->dy[7] = 1;
 }
 
-// info 구조체 초기화 함수
 static void	initialize_info(t_info *info)
 {
 	int	i;
@@ -73,7 +72,6 @@ static int	find_long_length(char **map)
 	return (long_len);
 }
 
-// map 배열 재설정 함수
 static void	recreate_info_map(t_info *info, int index, int i, int now_len)
 {
 	int		long_len;
@@ -103,19 +101,18 @@ static void	recreate_info_map(t_info *info, int index, int i, int now_len)
 	info->row = index;
 }
 
-// 파싱 파트 - 함수 순서별로 실행
 void	parsing_cub3d(int ac, char **av, t_info *info)
 {
 	int	len;
 
 	if (ac != 2)
-		ft_error("ac error"); // 인자 오직 둘 이상이면 에러
+		ft_error("ac error");
 	len = ft_strlen(av[1]);
 	if (len <= 4)
-		ft_error("file name error"); // 파일 이름 길이 4 이하면 에러
+		ft_error("file name error");
 	if (!(av[1][len - 4] == '.' && av[1][len - 3] == 'c' &&
 		av[1][len - 2] == 'u' && av[1][len - 1] == 'b'))
-		ft_error("file name error"); // ~.cub 파일 형식으로 작성 안되어있으면 에러
+		ft_error("file name error");
 	initialize_info(info);
 	input_info(av, info);
 	validate_info_element(info);

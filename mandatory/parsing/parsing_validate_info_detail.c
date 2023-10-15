@@ -6,7 +6,7 @@
 /*   By: jeongrol <jeongrol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 00:21:57 by jeongrol          #+#    #+#             */
-/*   Updated: 2023/10/15 00:37:23 by jeongrol         ###   ########.fr       */
+/*   Updated: 2023/10/15 15:18:15 by jeongrol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ static void	search_surround_wall(t_info *info, int x, int y)
 	}
 }
 
-// info-map 벽 둘러싸였는지 확인하는 함수 
 void	validate_info_map_wall(t_info *info, int x, int y)
 {
 	while (info->map[++x])
